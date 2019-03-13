@@ -20,8 +20,10 @@ RUN curl --insecure -o ./sonarscanner.zip -L https://binaries.sonarsource.com/Di
 ENV SONAR_RUNNER_HOME=/root/sonar-scanner
 ENV PATH $PATH:/root/sonar-scanner/bin
 
+ENTRYPOINT [ "tail", "-f" , "/dev/null"]
+
 #COPY sonar-runner.properties ./sonar-scanner/conf/sonar-scanner.properties
 
 # Use bash if you want to run the environment from inside the shell, otherwise use the command that actually runs the underlying stuff
 #CMD /bin/bash
-CMD sonar-scanner -Dsonar.projectBaseDir=./src
+#CMD sonar-scanner -Dsonar.projectBaseDir=./src
